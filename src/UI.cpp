@@ -112,14 +112,14 @@ std::string UI::getNonEmptyString(const std::string& prompt) const {
 }
 
 void UI::displayMenu(const Menu& menu) const {
-    std::cout << BOLD << GREEN << "\n【 主餐區 (Food) 】" << RESET << "\n";
+    std::cout << BOLD << GREEN << "\n【 單點食物區 (A-la-carte Food) 】" << RESET << "\n";
     for (const auto& item : menu.getItems()) {
         if (item->getCategory() == "Food") {
             std::cout << "  [" << item->getId() << "] " << item->getDescription() << "\n";
         }
     }
 
-    std::cout << BOLD << GREEN << "\n【 飲品區 (Drink) 】" << RESET << "\n";
+    std::cout << BOLD << GREEN << "\n【 單點飲品區 (A-la-carte Drink) 】" << RESET << "\n";
     for (const auto& item : menu.getItems()) {
         if (item->getCategory() == "Drink") {
             std::cout << "  [" << item->getId() << "] " << item->getDescription() << "\n";

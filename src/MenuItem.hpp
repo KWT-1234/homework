@@ -155,8 +155,27 @@ public:
         std::stringstream ss;
         ss << name << " [套餐特價: $" << std::fixed << std::setprecision(0) << getPrice() 
            << " (打 " << (discountRate * 10) << " 折)]\n     內容物:";
+        
+        bool hasFood = false;
         for (const auto& item : subItems) {
-            ss << "\n       - " << item->getDescription();
+            if (item->getCategory() == "Food") {
+                if (!hasFood) {
+                    ss << "\n       [套餐食物]";
+                    hasFood = true;
+                }
+                ss << "\n         - " << item->getDescription();
+            }
+        }
+
+        bool hasDrink = false;
+        for (const auto& item : subItems) {
+            if (item->getCategory() == "Drink") {
+                if (!hasDrink) {
+                    ss << "\n       [套餐飲料]";
+                    hasDrink = true;
+                }
+                ss << "\n         - " << item->getDescription();
+            }
         }
         return ss.str();
     }
