@@ -11,6 +11,7 @@ bin/
 obj/
 .next/
 .nuxt/
+*.exe
 
 # Logs
 *.log
