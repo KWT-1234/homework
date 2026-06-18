@@ -424,7 +424,15 @@ void UI::run() {
             runCustomerMode(menu, order);
         }
         else if (choice == 2) {
-            runAdminMode(menu);
+            std::cout << "\n請輸入管理員密碼: ";
+            std::string password;
+            std::getline(std::cin, password);
+            if (password == "1234") {
+                runAdminMode(menu);
+            } else {
+                std::cout << RED << "\n密碼錯誤！權限不足，無法進入管理員後台。\n" << RESET;
+                waitEnter();
+            }
         }
         else if (choice == 3) {
             clearScreen();
