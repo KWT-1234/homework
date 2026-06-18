@@ -14,7 +14,7 @@ if %errorlevel% neq 0 (
 )
 
 echo [*] 正在編譯 C++ 原始碼...
-g++ -std=c++17 -O2 src/main.cpp src/Menu.cpp src/Order.cpp src/UI.cpp -Isrc -o FoodOrderingSystem.exe
+g++ -std=c++17 -finput-charset=utf-8 -fexec-charset=utf-8 -O2 src/main.cpp src/Menu.cpp src/Order.cpp src/UI.cpp -Isrc -o FoodOrderingSystem.exe
 
 if %errorlevel% neq 0 (
     echo.

@@ -22,5 +22,11 @@ set(HEADERS
 
 add_executable(FoodOrderingSystem ${SOURCES} ${HEADERS})
 
+if(MSVC)
+    target_compile_options(FoodOrderingSystem PRIVATE /utf-8)
+else()
+    target_compile_options(FoodOrderingSystem PRIVATE -finput-charset=utf-8 -fexec-charset=utf-8)
+endif()
+
 # Ensure the executable can locate the data folder relative to working directory
 # We can copy the data folder to build directory as a post-build step or just run from project root

@@ -386,6 +386,10 @@ void UI::runAdminMode(Menu& menu) {
 
 void UI::run() {
 #ifdef _WIN32
+    // Enable UTF-8 encoding in Windows terminal
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
     // Enable ANSI coloring support in Windows terminal
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     if (hOut != INVALID_HANDLE_VALUE) {
